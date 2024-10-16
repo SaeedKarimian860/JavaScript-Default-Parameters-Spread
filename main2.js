@@ -193,7 +193,6 @@ const runner = {
 
 const { first, last, ...other } = runner;
 
-
 //Nested Destructuring
 const results = [
   {
@@ -213,7 +212,7 @@ const results = [
   },
 ];
 
-const [{first: goldWinner}, {country}] = results;
+// const [{ first: goldWinner }, { country }] = results;
 
-const[, silverMedal] = results;
-const {country} = silverMedal;
+const [, silverMedal] = results;
+const { country } = silverMedal;
