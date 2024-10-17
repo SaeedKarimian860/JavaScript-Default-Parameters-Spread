@@ -173,12 +173,12 @@ const [gold, silver, bronze] = raceResults;
 const [winner, ...others] = raceResults;
 
 //Object Destructuring
-const runner = {
-  first: "Eliud",
-  last: "Kipchoge",
-  country: "Kenya",
-  title: "Elder of the Order of the Golden Heart of Kenya",
-};
+// const runner = {
+//   first: "Eliud",
+//   last: "Kipchoge",
+//   country: "Kenya",
+//   title: "Elder of the Order of the Golden Heart of Kenya",
+// };
 
 // const {
 //     first,
@@ -191,7 +191,7 @@ const runner = {
 //     title: honorific
 // } = runner;
 
-const { first, last, ...other } = runner;
+// const { first, last, ...other } = runner;
 
 //Nested Destructuring
 const results = [
@@ -216,3 +216,124 @@ const results = [
 
 const [, silverMedal] = results;
 const { country } = silverMedal;
+
+//Param Destructuring
+const runner = {
+  first: "Eliud",
+  last: "Kipchoge",
+  country: "Kenya",
+  title: "Elder of the Order of the Golden Heart of Kenya",
+};
+
+// function print (person) {
+//   const {first, last, title} = person;
+//   console.log(`${first} ${last}, ${title}`)
+// }
+
+function print ({
+  first, last, title 
+}) {
+  console.log(`${first} ${last}, ${title}`)
+}
+
+const response = [
+  'HTTP/1.1',
+  '200 OK',
+  'application/json',
+]
+
+function parseResponse ([protocol, statusCode, contentType]){
+  console.log(`Status: ${statusCode}`)
+}
+
+//Shorthand Properties
+// const getStats = (arr) => {
+//   const max = Math.max(...arr);
+//   const min = Math.min(...arr);
+//   const sum = arr.reduce((sum, r) => sum + r);
+//   const avg = sum / arr.length;
+//   return {
+//     max: max,
+//     min: min,
+//     sum: sum,
+//     avg: avg
+//   }
+// }
+
+const getStats = (arr) => {
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+  const sum = arr.reduce((sum, r) => sum + r);
+  const avg = sum / arr.length;
+  return {
+    max,
+    min,
+    sum,
+    avg
+  }
+}
+const reviews = [4.5, 5.0, 3.44, 2.8, 3.5, 4.0, 3.5];
+
+const stats = getStats(reviews);
+
+//Computed Properties
+const role = 'host';
+const person = 'Jools Holland';
+const role2 = 'Director';
+const person2 = 'James Cameron'
+
+
+// const team = {};
+// team[role] = person;
+// team[role2] = person2;
+
+const team = {
+[role]: person,
+[role2]: person2,
+[1 + 6 + 9]: 'sixteen'
+}
+
+// function addProp(obj, k, v){
+//   const copy = {...obj};
+//   copy[k] = v;
+//   return copy;
+// }
+
+// const addProp = (obj, k, v) => {
+//   return {
+//     ...obj,
+//     [k]: v
+//   }
+// }
+
+const addProp = (obj, k, v) => ({...obj, [k]: v})
+const res = addProp(team, 'happy', ':)')
+
+
+//Methods
+// const add = function (x, y) {
+//   return x + y
+// }
+
+const math = {
+  numbers: [1, 2, 3, 4, 5],
+  add: function(x, y){
+    return x + y;
+  },
+  multiply: function(x, y) {
+    return x * y;
+  }
+}
+
+//Method shorthand
+const auth = {
+  username: 'Tommyboy',
+  login() {
+    console.log("Logged you in!")
+  },
+  logout() {
+    console.log("Goodbye")
+  }
+}
+
+
